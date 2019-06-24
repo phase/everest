@@ -18,7 +18,8 @@
   "CIBuildTarget" : "everest-ci",
   "NightlyBuildTarget" : "everest-move",
   "HasLogsToExtract" : true,
-
+  "BuildMaxThreads" : 24,
+    
   "NotificationEnabled" : true,
   "NotificationChannel" : "#everest-build",
     "PublicBranches" : [ "master", "mitls_dev" ],
