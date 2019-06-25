@@ -48,6 +48,11 @@ make_non_interactive () {
   OPAM_AUTO_SETUP=--auto-setup
 }
 
+SKIP_PYTHON3_CHECK=false
+toggle_skip_python3_check () {
+  SKIP_PYTHON3_CHECK=true
+}
+
 # The parallel option, either empty (by default), or -j n,
 # as specified on the command line.
 # WARNING: in the latter case, it MUST be interpreted as two words, so
@@ -685,24 +690,28 @@ OCAML
   fi
 
   # We need Scons for Vale which needs Python 3
-  if is_windows; then
-    check_windows_scons
-  else # *nix
-    if ! command -v scons >/dev/null 2>&1; then
-      red "ERROR: scons not installed -- please install"
-      exit 1
-    else
-      echo "... scons found in PATH"
-      if ! which python$SCONS_PYTHON_MAJOR_MINOR > /dev/null 2>&1 ; then
-        red "ERROR: python$SCONS_PYTHON_MAJOR_MINOR not found in PATH"
-        red "Please install Python $SCONS_PYTHON_MAJOR_MINOR or higher"
-        exit 1
+  if `$SKIP_PYTHON3_CHECK` ; then
+      echo Skipping check for Python $SCONS_PYTHON_MAJOR_MINOR
+  else
+      if is_windows; then
+	  check_windows_scons
+      else # *nix
+	  if ! command -v scons >/dev/null 2>&1; then
+	      red "ERROR: scons not installed -- please install"
+	      exit 1
+	  else
+	      echo "... scons found in PATH"
+	      if ! which python$SCONS_PYTHON_MAJOR_MINOR > /dev/null 2>&1 ; then
+		  red "ERROR: python$SCONS_PYTHON_MAJOR_MINOR not found in PATH"
+		  red "Please install Python $SCONS_PYTHON_MAJOR_MINOR or higher"
+		  exit 1
+	      fi
+	      echo "... python$SCONS_PYTHON_MAJOR_MINOR found in PATH"
+	      # Check whether it corresponds to a Python 3.6 or above
+	      python$SCONS_PYTHON_MAJOR_MINOR $(which scons) --file=scons-python-version-test.py
+	      echo "... python$SCONS_PYTHON_MAJOR_MINOR is recent enough"
+	  fi
       fi
-      echo "... python$SCONS_PYTHON_MAJOR_MINOR found in PATH"
-      # Check whether it corresponds to a Python 3.6 or above
-      python$SCONS_PYTHON_MAJOR_MINOR $(which scons) --file=scons-python-version-test.py
-      echo "... python$SCONS_PYTHON_MAJOR_MINOR is recent enough"
-    fi
   fi
 
   if [[ -z "$EVEREST_SCONS_CACHE_DIR" ]]; then
@@ -1269,6 +1278,10 @@ while true; do
   case "$1" in
     --yes)
       make_non_interactive
+      ;;
+
+    --skip_python3_check)
+      toggle_skip_python3_check
       ;;
 
     -j)
