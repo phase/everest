@@ -19,9 +19,9 @@ OPAM_VERSION=4.05.0+mingw64c
 # (all other occurrences of python can use whatever python 2 is in the PATH, be it Windows or Cygwin)
 # NOTE: if you change SCONS_PYTHON_MAJOR and/or SCONS_PYTHON_MINOR, then please also update scons-python-version-test.py
 SCONS_PYTHON_MAJOR=3
-SCONS_PYTHON_MINOR=6
+SCONS_PYTHON_MINOR=7
 SCONS_PYTHON_MAJOR_MINOR=$SCONS_PYTHON_MAJOR.$SCONS_PYTHON_MINOR
-SCONS_PYTHON_REVISION=6
+SCONS_PYTHON_REVISION=3
 SCONS_PYTHON_VER=$SCONS_PYTHON_MAJOR_MINOR.$SCONS_PYTHON_REVISION
 # NOTE: if you change SCONS_VER, then please also update scons-python-version-test.py
 SCONS_VER=3.0.1
