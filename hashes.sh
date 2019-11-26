@@ -2,7 +2,7 @@ declare -A hashes
 declare -A branches
 hashes[mitls-fstar]=84e00e2ed0c0e533bd37a029705f867a5c8b97b0
 branches[mitls-fstar]=master
-hashes[quackyducky]=0ede743d81f3054c1f8a2e361b4421f28bbd7fae
+hashes[quackyducky]=faf83b7bc15d77a5e77121d02c0605f456762ecb
 branches[quackyducky]=taramana_integers
 hashes[FStar]=482d8be0bdf0710a1f0f50fe9bd7b2497bf720fd
 branches[FStar]=taramana_load_be_i
