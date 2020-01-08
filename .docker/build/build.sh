@@ -85,7 +85,8 @@ function everest_move() {
 
     versions="$versions\n"
     echo "Versions content: $versions"
-
+    return 255
+    
     local msg=""
     if ! $fresh; then
         # Bail out early if there's nothing to do
