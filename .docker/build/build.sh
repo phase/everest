@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-#set -x
+set -x
 
 target=$1
 out_file=$2
