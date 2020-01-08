@@ -68,7 +68,7 @@ function everest_move() {
     local url=""
     for r in ${!hashes[@]}; do
         cd $r
-        git pull
+        git pull -v
         if [[ $(git rev-parse HEAD) != ${hashes[$r]} ]]; then
             fresh=true
             url=${repositories[$r]#git@github.com:}
