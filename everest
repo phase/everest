@@ -768,9 +768,12 @@ get_vale ()
     wget "https://github.com/project-everest/vale/releases/download/v${vale_version}/vale-release-${vale_version}.zip" -O vale/vale-release.zip
     rm -rf "vale/vale-release-${vale_version}"
     unzip -o vale/vale-release.zip -d vale
+    echo Vale ${vale_version} extracted successfully
+    set -x
     rm -rf "vale/bin"
     mv "vale/vale-release-${vale_version}/bin" vale/
     chmod +x vale/bin/*.exe
+    echo Vale ${vale_version} installed successfully
   fi
 }
 
