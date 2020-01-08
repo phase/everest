@@ -81,6 +81,7 @@ function everest_move() {
     done
     # Once the HACL* version has been upgraded, this determines the Vale version
     # we need.
+    set -x
     ./everest get_vale
 
     versions="$versions\n"
