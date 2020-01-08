@@ -68,7 +68,7 @@ function everest_move() {
     local url=""
     for r in ${!hashes[@]}; do
         cd $r
-        git fetch -v
+        GIT_SSH_COMMAND="ssh -vvv" git fetch -v
         git merge
         if [[ $(git rev-parse HEAD) != ${hashes[$r]} ]]; then
             fresh=true
