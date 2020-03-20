@@ -10,5 +10,5 @@ hashes[MLCrypto]=190250bbb8f16e7c3f6a8d443b13600ada4fbe79
 branches[MLCrypto]=master
 hashes[hacl-star]=4cc381720fbd023e71774c7db4c97c6e390ea96f
 branches[hacl-star]=master
-hashes[kremlin]=19f4b6ede3272f5d740a2a160132c8ec169b5d24
+hashes[kremlin]=ab7721eeb9b516feedb85e8b3b1d69a92ed00aec
 branches[kremlin]=guido_1905
