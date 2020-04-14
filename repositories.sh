@@ -16,5 +16,8 @@ https[mitls-fstar]=https://github.com/project-everest/mitls-fstar.git
 repositories[MLCrypto]=git@github.com:project-everest/MLCrypto.git
 https[MLCrypto]=https://github.com/project-everest/MLCrypto.git
 
-repositories[quackyducky]=git@github.com:project-everest/quackyducky.git
-https[quackyducky]=https://github.com/project-everest/quackyducky.git
+repositories[quackyducky]=git@github.com:project-everest/everparse.git
+https[quackyducky]=https://github.com/project-everest/everparse.git
+
+repositories[everparse-3d]=git@github.com:project-everest/everparse.git
+https[everparse-3d]=https://github.com/project-everest/everparse.git
